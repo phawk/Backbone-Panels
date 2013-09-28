@@ -15,7 +15,9 @@ A basic [Backbone](http://backbonejs.org) panel manager. Allows you to create st
 
 * * *
 
-# Usage
+# Getting started
+
+## Usage
 
 ```js
 define(
@@ -43,6 +45,20 @@ function(panels, header_view, homepage_view, about_view, footer_view) {
 
     // Remove all views and namespaces
     panel.removeAll();
+});
+```
+
+## Installation
+
+Grab the two files from `lib` and place them into your third party libraries directory (e.g. `vendor/backbone-panels`). Then add these the **backbone-panels** lib to your requirejs paths.
+
+```js
+require.config({
+    // ...
+    paths: {
+        // ...
+        "backbone-panels": "vendor/backbone-panels/backbone-panels",
+    }
 });
 ```
 
