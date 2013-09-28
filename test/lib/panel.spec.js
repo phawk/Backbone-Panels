@@ -96,9 +96,7 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
 
             describe(".replace", function() {
                 beforeEach(function() {
-                    env.panel.add({
-                        "main": env.fixture_simple_view
-                    });
+                    env.panel.add({ "main": env.fixture_simple_view });
 
                     env.method_resp = env.panel.replace("main", env.fixture_simple_view_three);
                 });
@@ -125,8 +123,30 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
             });
 
             describe(".remove", function() {
+                beforeEach(function() {
+                    env.panel.add({ "main": env.fixture_simple_view });
+
+                    env.method_resp = env.panel.remove("main");
+                });
+
                 it("exists", function() {
                     expect(env.panel).to.respondTo("remove");
+                });
+
+                it("returns false if the view isn't present", function() {
+                    expect(env.panel.remove()).to.be.false;
+                });
+
+                it("removes the view", function() {
+                    expect(env.panel.$(".simple-view")).to.not.exist;
+                });
+
+                it("removes the reference", function() {
+                    expect(env.panel.views.main).to.be.undefined;
+                });
+
+                it("returns true", function() {
+                    expect(env.method_resp).to.be.true;
                 });
             });
 

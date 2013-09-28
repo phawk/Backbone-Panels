@@ -12,7 +12,7 @@ function(Backbone) {
             this.$el.html(html);
 
             return this;
-        }
+        },
 
     });
 
