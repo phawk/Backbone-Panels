@@ -95,8 +95,32 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
             });
 
             describe(".replace", function() {
+                beforeEach(function() {
+                    env.panel.add({
+                        "main": env.fixture_simple_view
+                    });
+
+                    env.method_resp = env.panel.replace("main", env.fixture_simple_view_three);
+                });
+
                 it("exists", function() {
                     expect(env.panel).to.respondTo("replace");
+                });
+
+                it("returns false if original view is missing", function() {
+                    expect(env.panel.replace()).to.be.false;
+                });
+
+                it("stores the view", function() {
+                    expect(env.panel.views["main"]).to.eql(env.fixture_simple_view_three);
+                });
+
+                it("places the view in the DOM", function() {
+                    expect(env.panel.$(".simple-view-three")).to.exist;
+                });
+
+                it("removes the old view from the DOM", function() {
+                    expect(env.panel.$(".simple-view")).to.not.exist;
                 });
             });
 
