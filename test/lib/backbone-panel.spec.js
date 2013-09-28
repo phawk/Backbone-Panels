@@ -1,5 +1,5 @@
 define(
-["chai", "backbone", "sinon-chai", "jquery-chai", "../../lib/panel", "../fixtures/simple_view"],
+["chai", "backbone", "sinon-chai", "jquery-chai", "backbone-panel", "../fixtures/simple_view"],
 function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
 
     var expect = chai.expect,

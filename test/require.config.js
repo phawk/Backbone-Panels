@@ -5,6 +5,8 @@ require.config({
         "jquery": "vendor/jquery/jquery",
         "underscore": "vendor/underscore/underscore",
         "backbone": "vendor/backbone/backbone",
+        "backbone-panels": "../lib/backbone-panels",
+        "backbone-panel": "../lib/backbone-panel",
 
         // Dev / Test deps
         "chai": "vendor/chai/chai",

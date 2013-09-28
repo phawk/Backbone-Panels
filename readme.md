@@ -1,4 +1,4 @@
-# Backbone Panels (0.1.0)
+# Backbone Panels (0.1.1)
 
 A basic [Backbone](http://backbonejs.org) panel manager. Allows you to create static panels in the DOM and has a nice API for adding, removing and replacing the content of these panels with Backbone views.
 
@@ -59,6 +59,7 @@ require.config({
     paths: {
         // ...
         "backbone-panels": "vendor/backbone-panels/backbone-panels",
+        "backbone-panel": "vendor/backbone-panels/backbone-panel"
     }
 });
 ```
