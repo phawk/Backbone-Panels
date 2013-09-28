@@ -151,8 +151,34 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
             });
 
             describe(".removeAll", function() {
+                beforeEach(function() {
+                    env.panel.add({
+                        "one": env.fixture_simple_view,
+                        "two": env.fixture_simple_view_two,
+                        "three": env.fixture_simple_view_three
+                    });
+
+                    env.method_resp = env.panel.removeAll();
+                });
+
                 it("exists", function() {
                     expect(env.panel).to.respondTo("removeAll");
+                });
+
+                it("removes the views", function() {
+                    expect(env.panel.$(".simple-view")).to.not.exist;
+                    expect(env.panel.$(".simple-view-two")).to.not.exist;
+                    expect(env.panel.$(".simple-view-three")).to.not.exist;
+                });
+
+                it("removes the references", function() {
+                    expect(env.panel.views.one).to.be.undefined;
+                    expect(env.panel.views.two).to.be.undefined;
+                    expect(env.panel.views.three).to.be.undefined;
+                });
+
+                it("returns true", function() {
+                    expect(env.method_resp).to.be.true;
                 });
             });
         });

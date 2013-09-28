@@ -1,6 +1,6 @@
 define(
-["chai", "backbone", "sinon-chai", "../../lib/jspanels"],
-function(chai, Backbone, sinon_chai, panels) {
+["chai", "jquery", "backbone", "sinon-chai", "../../lib/jspanels"],
+function(chai, $, Backbone, sinon_chai, panels) {
 
     var expect = chai.expect,
         env;
@@ -22,12 +22,22 @@ function(chai, Backbone, sinon_chai, panels) {
         });
 
         describe("#create", function() {
+            beforeEach(function() {
+                env.app_el = $("<div>");
+            });
+
             it("exists", function() {
                 expect(panels).to.respondTo("create");
             });
 
             it("returns a paenl", function() {
                 expect(panels.create()).to.be.an("object");
+            });
+
+            it("passes through options", function() {
+                var panel = panels.create({ element: env.app_el });
+
+                expect(panel.$el).to.eql(env.app_el);
             });
         });
     });
