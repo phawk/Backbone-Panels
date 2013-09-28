@@ -1,0 +1,6 @@
+# Created by http://gitignore.io
+
+### Node ###
+*.log
+npm-debug.log
+node_modules
