@@ -38,7 +38,7 @@ function(chai, $, Backbone, sinon_chai, jquery_chai, panels) {
             describe("when setting options", function() {
                 beforeEach(function() {
                     env.panel = panels.create({
-                        element: env.app_el,
+                        el: env.app_el,
                         className: "custom-panel",
                     });
                 });
