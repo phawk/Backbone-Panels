@@ -28,6 +28,7 @@ function(panels, header_view, homepage_view, about_view, footer_view) {
         className: "custom-class", // (Optional) Defaults to "backbone-panel".
     };
 
+    // Create a panel
     var panel = panels.create(opts);
 
     // Adding some views (Calls .render on each and adds them into the DOM in the order provided)
