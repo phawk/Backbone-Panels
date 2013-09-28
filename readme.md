@@ -1,6 +1,8 @@
 # Backbone Panels (0.1.0)
 
-A basic [Backbone](http://backbonejs.org) panel manager. Allows you to create static panels in the DOM and has a nice API for adding, removing and replacing the content of these panels with Backbone views. This is currently packaged as an AMD module. If you want support outside of AMD, please open an issue and request it, or send a pull request.
+A basic [Backbone](http://backbonejs.org) panel manager. Allows you to create static panels in the DOM and has a nice API for adding, removing and replacing the content of these panels with Backbone views.
+
+*This is currently packaged as an AMD module. If you want support outside of AMD, please open an issue and request it, or send a pull request.*
 
 [![Build Status](https://travis-ci.org/phawk/Backbone-Panels.png?branch=master)](https://travis-ci.org/phawk/Backbone-Panels)
 
@@ -16,23 +18,31 @@ A basic [Backbone](http://backbonejs.org) panel manager. Allows you to create st
 # Usage
 
 ```js
-define(["backbone-panels"], function(panels) {
+define(
+["backbone-panels", "views/header", "views/homepage", "views/about", "views/footer"],
+function(panels, header_view, homepage_view, about_view, footer_view) {
     var opts = {
-        el: $("body"), // Any jQuery selector, if not passed it, it will use an in memory `<dib>`.
-        className: "custom-class", // (Optional) Defaults to ".backbone-panel"
+        el: $("body"), // (optional) Any jQuery selector, if not passed it, it will use an in memory `<dib>`.
+        className: "custom-class", // (Optional) Defaults to "backbone-panel".
     };
 
     var panel = panels.create(opts);
 
-    // Adding some views
+    // Adding some views (Calls .render on each and adds them into the DOM in the order provided)
     panel.add({
-        "header": my_header_view,
+        "header": header_view,
         "content": homepage_view,
-        "footer": my_footer_view
+        "footer": footer_view
     });
 
-    // Replace a view
+    // Replace a view (calls .remove on the original view, then .render on the new view and adds it into the DOM)
     panel.replace("content", about_view);
+
+    // Remove a single view (calls .remove and deletes the panel namespace)
+    panel.remove("footer");
+
+    // Remove all views and namespaces
+    panel.removeAll();
 });
 ```
 
