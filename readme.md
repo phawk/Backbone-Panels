@@ -1,10 +1,12 @@
-# Backbone Panels (0.1.0)
+# Backbone Panels (0.1.1)
 
 A basic [Backbone](http://backbonejs.org) panel manager. Allows you to create static panels in the DOM and has a nice API for adding, removing and replacing the content of these panels with Backbone views.
 
 *This is currently packaged as an AMD module. If you want support outside of AMD, please open an issue and request it, or send a pull request.*
 
 [![Build Status](https://travis-ci.org/phawk/Backbone-Panels.png?branch=master)](https://travis-ci.org/phawk/Backbone-Panels)
+
+[View the changelog](https://github.com/phawk/Backbone-Panels/blob/master/changelog.md)
 
 ### Dependencies
 
@@ -59,6 +61,7 @@ require.config({
     paths: {
         // ...
         "backbone-panels": "vendor/backbone-panels/backbone-panels",
+        "backbone-panel": "vendor/backbone-panels/backbone-panel"
     }
 });
 ```
