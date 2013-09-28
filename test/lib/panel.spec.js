@@ -60,6 +60,10 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
                 it("stores the view", function() {
                     expect(env.panel.views.main).to.eql(env.fixture_simple_view);
                 });
+
+                it("returns true", function() {
+                    expect(env.method_resp).to.be.true;
+                });
             });
 
             describe("adding multiple views", function() {
@@ -84,10 +88,28 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
                         "three": env.fixture_simple_view_three
                     });
                 });
+
+                it("returns true", function() {
+                    expect(env.method_resp).to.be.true;
+                });
             });
 
             describe(".replace", function() {
+                it("exists", function() {
+                    expect(env.panel).to.respondTo("replace");
+                });
+            });
 
+            describe(".remove", function() {
+                it("exists", function() {
+                    expect(env.panel).to.respondTo("remove");
+                });
+            });
+
+            describe(".removeAll", function() {
+                it("exists", function() {
+                    expect(env.panel).to.respondTo("removeAll");
+                });
             });
         });
     });
