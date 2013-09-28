@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS Panels example</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/example.css">
+</head>
+
+<body>
+
+    <div class="app-main"></div>
+
+    <script src="../test/vendor/requirejs/require.js"></script>
+    <script>
+        require.config({
+            baseUrl: "../",
+            paths: {
+                "jquery": "test/vendor/jquery/jquery",
+                "underscore": "test/vendor/underscore/underscore",
+                "backbone": "test/vendor/backbone/backbone",
+                "backbone-panels": "lib/backbone-panels",
+                "backbone-panel": "lib/backbone-panel"
+            },
+            urlArgs: "bust=" + (new Date()).getTime() // cache-busting
+        });
+
+        require([
+            "jquery",
+            "backbone",
+            "backbone-panels",
+        ], function($, Backbone, panels) {
+            // Create some sample views
+            var Header = Backbone.View.extend({
+                tagName: "header",
+                render: function() {
+                    this.$el.html("<h1>Backbone Panels</h1>");
+                    return this;
+                }
+            });
+
+            var Home = Backbone.View.extend({
+                tagName: "section",
+                className: "main",
+                render: function() {
+                    this.$el.html("<p>Welcome!</p>");
+                    return this;
+                }
+            });
+
+            var About = Backbone.View.extend({
+                tagName: "section",
+                className: "main",
+                render: function() {
+                    this.$el.html("<p>About Backbone Panels</p>");
+                    return this;
+                }
+            });
+
+            var Footer = Backbone.View.extend({
+                tagName: "footer",
+                render: function() {
+                    this.$el.html("<p>footer</p>");
+                    return this;
+                }
+            });
+
+
+            // Create the main panel for the site
+            var panel = panels.create({
+                el: $(".app-main")
+            });
+
+
+            // Add the views to the panel
+            panel.add({
+                "header": new Header(),
+                "content": new Home(),
+                "footer": new Footer()
+            });
+
+
+            // Replace the homepage with the about page
+            panel.replace("content", new About());
+        });
+    </script>
+
+</body>
+</html>

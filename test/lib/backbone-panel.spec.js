@@ -21,6 +21,9 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
             env.fixture_simple_view_three = new Fixture_simple_view();
             env.fixture_simple_view_three.$el.attr("class", "simple-view-three");
 
+            env.fixture_simple_view_four = new Fixture_simple_view();
+            env.fixture_simple_view_four.$el.attr("class", "simple-view-three-four");
+
             env.panel = new Panel();
         });
 
@@ -96,7 +99,11 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
 
             describe(".replace", function() {
                 beforeEach(function() {
-                    env.panel.add({ "main": env.fixture_simple_view });
+                    env.panel.add({
+                        "header": env.fixture_simple_view_two,
+                        "main": env.fixture_simple_view,
+                        "footer": env.fixture_simple_view_four
+                    });
 
                     env.method_resp = env.panel.replace("main", env.fixture_simple_view_three);
                 });
@@ -119,6 +126,10 @@ function(chai, Backbone, sinon_chai, jquery_chai, Panel, Fixture_simple_view) {
 
                 it("removes the old view from the DOM", function() {
                     expect(env.panel.$(".simple-view")).to.not.exist;
+                });
+
+                it("keeps the view at the same index", function() {
+                    expect(env.panel.$el.children().eq(1)).to.have.class("simple-view-three");
                 });
             });
 

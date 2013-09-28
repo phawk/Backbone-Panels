@@ -6,6 +6,8 @@ A basic [Backbone](http://backbonejs.org) panel manager. Allows you to create st
 
 [![Build Status](https://travis-ci.org/phawk/Backbone-Panels.png?branch=master)](https://travis-ci.org/phawk/Backbone-Panels)
 
+[View the changelog](https://github.com/phawk/Backbone-Panels/blob/master/changelog.md)
+
 ### Dependencies
 
 * [Require JS](http://requirejs.org/)
