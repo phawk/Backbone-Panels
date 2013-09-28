@@ -1,11 +1,12 @@
 define(
-["chai", "jquery", "backbone", "sinon-chai", "../../lib/jspanels"],
-function(chai, $, Backbone, sinon_chai, panels) {
+["chai", "jquery", "backbone", "sinon-chai", "jquery-chai", "../../lib/jspanels"],
+function(chai, $, Backbone, sinon_chai, jquery_chai, panels) {
 
     var expect = chai.expect,
         env;
 
     chai.use(sinon_chai);
+    chai.use(jquery_chai);
 
     describe("JS Panels", function() {
         beforeEach(function() {
@@ -34,10 +35,21 @@ function(chai, $, Backbone, sinon_chai, panels) {
                 expect(panels.create()).to.be.an("object");
             });
 
-            it("passes through options", function() {
-                var panel = panels.create({ element: env.app_el });
+            describe("when setting options", function() {
+                beforeEach(function() {
+                    env.panel = panels.create({
+                        element: env.app_el,
+                        className: "custom-panel",
+                    });
+                });
 
-                expect(panel.$el).to.eql(env.app_el);
+                it("sets the element", function() {
+                    expect(env.panel.$el).to.eql(env.app_el);
+                });
+
+                it("sets the className", function() {
+                    expect(env.panel.$el).to.have.class("custom-panel");
+                });
             });
         });
     });
