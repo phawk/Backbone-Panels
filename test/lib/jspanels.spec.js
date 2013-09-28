@@ -17,17 +17,17 @@ function(chai, Backbone, sinon_chai, panels) {
             env.sb.restore();
         });
 
-        it("should exist", function() {
+        it("exists", function() {
             expect(panels).to.be.an("object");
         });
 
         describe("#create", function() {
-            it("should exist", function() {
+            it("exists", function() {
                 expect(panels).to.respondTo("create");
             });
 
             it("returns a paenl", function() {
-                expect(panels.create()).to.be.an.instanceof(Backbone.View);
+                expect(panels.create()).to.be.an("object");
             });
         });
     });
