@@ -68,6 +68,14 @@ require.config({
 
 * * *
 
+# Contributing
+
+* Create a feature / bugfix branch
+* Add tests, we currently use [mocha](http://visionmedia.github.io/mocha/), [chai](http://chaijs.com/) and [sinon](http://sinonjs.org/).
+* Submit a pull request into the `upstream/dev` branch
+
+* * *
+
 # MIT License
 
 Copyright (C) 2013 Pete Hawkins
