@@ -57,9 +57,9 @@ Grab the two files from `lib` and place them into your third party libraries dir
 
 ```js
 require.config({
-    // ...
+    // ..
     paths: {
-        // ...
+        // ..
         "backbone-panels": "vendor/backbone-panels/backbone-panels",
         "backbone-panel": "vendor/backbone-panels/backbone-panel"
     }
