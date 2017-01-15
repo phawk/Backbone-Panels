@@ -71,7 +71,7 @@ require.config({
 # Contributing
 
 * Create a feature / bugfix branch
-* Add tests, we currently use [mocha](http://visionmedia.github.io/mocha/), [chai](http://chaijs.com/) and [sinon](http://sinonjs.org/).
+* Add tests, we currently use [mocha](http://mochajs.org/), [chai](http://chaijs.com/) and [sinon](http://sinonjs.org/).
 * Submit a pull request into the `upstream/dev` branch
 
 * * *
